@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% load static %}{% block content %}
+<link rel="stylesheet" href="{% static 'authentication/register.css' %}" />
+<div class="register_container">
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="role">Choose your role:</label>
+    <select id="role">
+      <option value="normalUser" name="normalUser">Normal User</option>
+      <option value="admin" name="admin">Admin</option>
+    </select>
+    <div class="form_item">
+      <label>First Name</label>
+      <input type="text" placeholder="First Name" name="first_name" />
+    </div>
+
+    <div class="form_item">
+      <label>Last Name</label>
+      <input type="text" placeholder="Last Name" name="last_name" />
+    </div>
+
+    <div class="form_item">
+      <label>Username</label>
+      <input type="text" placeholder="Username" name="username" />
+    </div>
+
+    <div class="form_item">
+      <label>Email</label>
+      <input type="email" name="" placeholder="Email" name="email" />
+    </div>
+
+    <div class="form_item">
+      <label>Password</label>
+      <input type="password" placeholder="Password" name="pass1" />
+    </div>
+
+    <div class="form_item">
+      <label>Confirm Password</label>
+      <input type="password" placeholder="Confirm Password" name="pass2" />
+    </div>
+    <div class="form_item">
+      <button class="btn_btn" type="submit">Signup</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

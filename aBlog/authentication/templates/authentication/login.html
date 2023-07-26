@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% load static %}{% block content %}
+<link rel="stylesheet" href="{% static 'authentication/login.css' %}" />
+<div class="register_container">
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="form_item">
+      <label>Username</label>
+      <input type="text" placeholder="Username" name="username"/>
+    </div>
+
+    <div class="form_item">
+      <label>Password</label>
+      <input type="password" placeholder="Password" name="password"/>
+    </div>
+    <label class="forgot-password"><a href="#">Forgot password?</a></label>
+    <div class="form_item">
+      <button class="btn_btn" type="submit">Login</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

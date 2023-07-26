@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+{% if user.is_authenticated %}
+  <link rel="stylesheet" href="{% static 'blogApp/add_post.css' %}" />
+  <div class="addPostContainer">
+    <h3>Type your blog</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <select name="select" id="" aria-placeholder="author">{{blog_obj.author}}</select>
+      <input type="text" placeholder="Title" name="title" value=""/>
+      <span>Header Image</span>
+      <input type="file" name="image">
+      <textarea
+        name="add_post_input"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Type here..."
+        value=""
+      ></textarea>
+      <button type="submit" class="btn_btn">Post</button>
+    </form>
+  </div>
+
+  {% for i in blog_obj %}
+  <div class="blog-card">
+    <div class="blog-content">
+      <h2 class="blog-title">{{i.title}}</h2>
+      <img src="{{i.blog_img.url}}" alt="Blog Image" class="image-section"/>
+      <hr>
+      <p class="blog-description">{{i.blog_content}}</p>
+      <p>{{i.author}}</p>
+        {% if request.user == i.author %}
+        <a href="{% url 'update_blog_post' i.id %}" class="btn_btn">Update</a>
+        <a href="{% url 'delete_blog_post' i.id %}" class="delete">Delete</a>
+        {% endif %}
+      <br>
+      <a href="{% url 'blog_details'%}" class="btn_btn">Read More</a>
+    </div>
+  </div>
+  {% endfor %}
+{% else %}
+<h1>You must login first</h1>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aBlog</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="main_nav">
+          <div class="inside_nav">
+            <a href="{% url 'home' %}" class="logo">aBlog</a>
+            <div class="nav_items">
+              {% if user.is_authenticated %}
+              <ul>
+                <li><a href="#">{{user.first_name}}</a></li>
+              </ul>
+              {% endif %}
+              <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+              </ul>
+              {% if user.is_authenticated %}
+              <ul>
+                <li><a href="{% url 'add_blog_post' %}">Add Post</a></li>
+              </ul>
+              <ul>
+                <li><a href="#">Contact</a></li>
+              </ul>
+              <ul>
+                <li><a href="#">Profile</a></li>
+              </ul>
+              {% endif %}
+              <ul>
+                <li><a href="#">About</a></li>
+              </ul>
+
+              <div class="auth">
+                {% if user.is_authenticated %}
+                <ul>
+                  <li><a class="btn" href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+                {% else %}
+                <ul>
+                  <li><a class="btn" href="{% url 'signup' %}">Signup</a></li>
+                </ul>
+                <ul>
+                  <li><a class="btn" href="{% url 'login' %}">Login</a></li>
+                </ul>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    {% block content %} {% endblock %}
+
+    <!-- <footer>
+      <div class="footer-content">
+        <div class="copyright">
+          &copy; 2023 aBlog. All rights reserved.
+        </div>
+      </div>
+    </footer> -->
+  </body>
+</html>

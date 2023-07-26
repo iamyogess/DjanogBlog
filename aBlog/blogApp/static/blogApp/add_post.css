@@ -1,0 +1,103 @@
+body {
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+img{
+  width: 50px;
+  margin: 30px;
+}
+
+.addPostContainer {
+  max-width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.addPostContainer h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.addPostContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addPostContainer input[type="text"],
+.addPostContainer textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.addPostContainer textarea {
+  resize: vertical;
+}
+
+.addPostContainer button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addPostContainer button:hover {
+  background-color: #45a049;
+}
+
+/* Added posts css  */
+.blog-card {
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
+
+.image-section {
+  width: 100px;
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.blog-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.blog-description {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.btn_btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.delete {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: red;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 30px 0;
+}
+
+.btn_btn:hover {
+  background-color: #45a049;
+}

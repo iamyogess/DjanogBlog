@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'blogApp/index.css' %}" />
+{% for blog in blog_elements %}
+<div class="blog-card">
+  <div class="blog-content">
+    <h2 class="blog-title">{{blog.title}}</h2>
+    <img class="image-section" src="{{blog.blog_img.url}}" alt="image">
+    <p class="blog-description">{{blog.blog_content}}</p>
+    <p>By: {{blog.author}}</p>
+    <br>
+    <a href="{% url 'blog_details' %}" class="btn_btn">Read More</a>
+    {% if user.is_authenticated %}
+        {% if request.user == blog.author %}
+        <a href="{% url 'update_blog_post' blog.id %}" class="btn_btn">Update</a>
+        <a href="{% url 'delete_blog_post' blog.id %}" class="delete">Delete</a>
+        {% endif %}
+    {% endif %}
+  </div>
+</div>
+{% endfor %} {% endblock %}
